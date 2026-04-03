@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "defaultMode": "plan",
+    "allow": [
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(tsx *)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Skill(code-review)",
+      "Skill(commit-code)",
+      "Skill(build)",
+      "Skill(test)",
+      "Skill(update-rules)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(git checkout . *)",
+      "Bash(git restore . *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/stop-lessons.sh",
+            "timeout": 60,
+            "statusMessage": "Checking for lessons learned..."
+          }
+        ]
+      }
+    ]
+  }
+}
